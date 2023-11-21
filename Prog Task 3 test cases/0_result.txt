@@ -1,0 +1,2 @@
+North-West Corner Result:
+S = 1380

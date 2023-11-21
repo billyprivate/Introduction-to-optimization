@@ -1,0 +1,2 @@
+Vogel's Approximation Result:
+S = 10950.0
