@@ -148,9 +148,18 @@ def russells_approximation(S, D, C):
 
     return x
 
+def initial_sum(X, C):
+    num_rows, num_cols = C.shape
+    
+    _s = 0
+    for i in range(num_rows):
+        for j in range(num_cols):
+            _s += X[i, j] * C[i, j]
+    return _s    
 
 def string_to_array(input_string):
     return np.array([int(item) for item in input_string.split(',')])
+
 
 
 # Getting input from user
@@ -180,9 +189,19 @@ else:
 
     # Calculating solutions
     nw_solution = north_west_corner(S.copy(), D.copy())
+    nw_result = initial_sum(nw_solution, C)
+    
     vogels_solution = vogels_approximation(S.copy(), D.copy(), C)
+    vogels_result = initial_sum(vogels_solution, C)
+    
     russells_solution = russells_approximation(S.copy(), D.copy(), C)
-
+    russells_result = initial_sum(russells_solution, C)
+    
     print("North-West Corner Solution:\n", nw_solution)
+    print(f'S = {nw_result}\n')
+    
     print("Vogel's Approximation Solution:\n", vogels_solution)
+    print(f'S = {vogels_result}\n')
+    
     print("Russell's Approximation Solution:\n", russells_solution)
+    print(f'S = {russells_result}\n')
